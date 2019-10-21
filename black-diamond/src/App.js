@@ -32,7 +32,9 @@ class App extends Component {
   }
   removeFromCart(index) {
     let cartCopy = this.state.cart.slice();
-    cartCopy.splice(index, 1);
+    console.log(cartCopy)
+    cartCopy.splice(el => el.id === index.id, 1);
+    console.log(cartCopy)
     this.setState({
       cart: cartCopy
     });
@@ -50,6 +52,7 @@ class App extends Component {
   }
   render() {
     const { products, cart, showCart } = this.state;
+    console.log(cart)
     return (
       <div className="App">
         <NavBar navigate={this.navigate} />
